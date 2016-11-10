@@ -38,4 +38,5 @@ jspm_packages
 
 # Built stuff
 app/bundle.js
+app/bundle.js.map
 app/style/style.css

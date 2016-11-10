@@ -1,4 +1,6 @@
 /*jslint browserify: true */
+'use strict';
+
 var $ = require('jquery'),
     console = require("console-browserify");
 
