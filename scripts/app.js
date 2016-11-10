@@ -3,12 +3,14 @@
 
 var $ = require('jquery'),
     console = require("console-browserify"),
-    scrollfix = require('./scrollfix');
+    scrollfix = require('./scrollfix'),
+    search = require('./search');
 
 $(function () {
   console.log('init');
 
-  scrollfix();
+  scrollfix.init();
+  search.init();
 });
 
 

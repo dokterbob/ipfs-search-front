@@ -4,11 +4,12 @@
 var $ = require('jquery'),
     console = require("console-browserify");
 
-module.exports = function() {
-  var fixTop = $('.header-wrapper').height();
-  console.debug(fixTop);
+module.exports = {
+  init: function() {
+    var fixTop = $('.header-wrapper').height();
+    console.debug(fixTop);
 
-  $(window).scroll(function() {
+    $(window).scroll(function() {
       var currentScroll = $(window).scrollTop();
       if (currentScroll >= fixTop) {
         $('.fix').addClass('fixed');
@@ -17,5 +18,6 @@ module.exports = function() {
         $('.fix').removeClass('fixed');
         console.debug('removed Class fixed');
       }
-  });
+    });
+  }
 };
