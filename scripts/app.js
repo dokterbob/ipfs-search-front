@@ -1,6 +1,7 @@
-/*jslint node: true */
+/*jslint browserify: true */
 'use strict';
-var $ = require('jquery');
+var $ = require('jquery'),
+    console = require("console-browserify");
 
 $(function () {
   // your code goes here
@@ -8,6 +9,7 @@ $(function () {
 
   var fixTop = $('.header-wrapper').height();
   console.log(fixTop);
+
   $(window).scroll(function() {
       var currentScroll = $(window).scrollTop();
       if (currentScroll >= fixTop) {
