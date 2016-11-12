@@ -56,3 +56,4 @@ gulp.task('browser-sync', function() {
 
 // Default Task
 gulp.task('default', ['browserify','less', 'watch', 'browser-sync']);
+gulp.task('build', ['browserify','less']);
