@@ -11,10 +11,14 @@ module.exports = {
 
     var search_form = $('#search-form'),
         result_container = $('#result-container'),
-        result_template = Handlebars.compile($('#result-template').html());
+        result_template = Handlebars.compile($('#result-template').html()),
+        page_number = $('#page-number');
 
-    search_form.submit(function (event) {
+    function submit_form() {
       console.log('Form submit requested.');
+
+      // Reset page number
+      page_number.val(0);
 
       $.get(
         search_form.attr('action'),
@@ -30,7 +34,22 @@ module.exports = {
         console.log(results);
       });
 
-      event.preventDefault();
-    });
+      return false;
+    }
+
+    search_form.submit(submit_form);
+
+    window.next_page = function () {
+      console.log('Page increase');
+      page_number.val(parseInt(page_number.val()) + 1);
+      submit_form();
+    };
+
+    window.prev_page = function () {
+      console.log('Page decrease');
+      page_number.val(parseInt(page_number.val()) - 1);
+      submit_form();
+    };
+
   }
 };
