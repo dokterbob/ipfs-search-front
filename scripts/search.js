@@ -17,9 +17,6 @@ module.exports = {
     function submit_form() {
       console.log('Form submit requested.');
 
-      // Reset page number
-      page_number.val(0);
-
       $.get(
         search_form.attr('action'),
         search_form.serialize()
@@ -37,7 +34,11 @@ module.exports = {
       return false;
     }
 
-    search_form.submit(submit_form);
+    search_form.submit(function () {
+      // Reset page number
+      page_number.val(0);
+      return submit_form();
+    });
 
     window.next_page = function () {
       console.log('Page increase');
