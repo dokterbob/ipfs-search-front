@@ -8,7 +8,6 @@ var $ = require('jquery'),
 
 $(function () {
   console.log('init');
-
   scrollfix.init();
   search.init();
 });
