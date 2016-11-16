@@ -62,7 +62,8 @@ gulp.task('browser-sync', function() {
             baseDir: "./app/"
         }
     });
-    gulp.watch("./app/**").on('change', reload);
+    gulp.watch("./app/index.html").on('change', reload);
+    gulp.watch("./app/bundle.js").on('change', reload);
 });
 
 
