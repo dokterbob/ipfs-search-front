@@ -10,6 +10,8 @@ var reload      = browserSync.reload;
 var sourcemaps  = require('gulp-sourcemaps');
 var source      = require('vinyl-source-stream');
 var uglify      = require('gulp-uglify');
+var handlebars  = require('gulp-handlebars');
+var defineModule = require('gulp-define-module');
 
 // Use browserify
 gulp.task('browserify', function() {
@@ -35,10 +37,22 @@ gulp.task('less', function () {
     .pipe(reload({stream: true}));
 });
 
+// Templates
+gulp.task('templates', function(){
+  gulp.src('templates/*.hbs')
+    .pipe(handlebars({
+        handlebars: require('handlebars')
+    }))
+    .pipe(defineModule('commonjs'))
+    .pipe(gulp.dest('scripts/templates/'));
+});
+
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-  gulp.watch('./less/**/*.less', ['less']);
+    gulp.watch("./less/**/*.less", ['less']);
+    gulp.watch("./scripts/**/*.js", ['browserify']);
+    gulp.watch("./templates/**/*.hbs", ['templates']);
 });
 
 // Static server
@@ -48,12 +62,9 @@ gulp.task('browser-sync', function() {
             baseDir: "./app/"
         }
     });
-    gulp.watch("./scripts/**/*.*", ['browserify']);
-    gulp.watch("./app/*.html").on('change', reload);
-    gulp.watch("./app/bundle.js").on('change', reload);
+    gulp.watch("./app/**").on('change', reload);
 });
 
 
-// Default Task
-gulp.task('default', ['browserify','less', 'watch', 'browser-sync']);
-gulp.task('build', ['browserify','less']);
+gulp.task('build', ['templates', 'browserify', 'less']);
+gulp.task('default', ['build', 'watch', 'browser-sync']);

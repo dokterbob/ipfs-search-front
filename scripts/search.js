@@ -3,7 +3,7 @@
 
 var $ = require('jquery'),
     console = require('console-browserify'),
-    Handlebars = require('handlebars');
+    result_template = require('./templates/results');
 
 module.exports = {
   init: function() {
@@ -11,7 +11,6 @@ module.exports = {
 
     var search_form = $('#search-form'),
         result_container = $('#result-container'),
-        result_template = Handlebars.compile($('#result-template').html()),
         page_number = $('#page-number');
 
     function submit_form() {

@@ -5,32 +5,6 @@
       <!-- typekit javascripts -->
       <script src="https://use.typekit.net/ypw3gpm.js"></script>
       <script>try{Typekit.load({ async: true });}catch(e){}</script>
-      <script id="result-template" type="text/x-handlebars-template">
-        <div class="col-group">
-          <div class="col-14 results">
-            <div class="paginator">
-              <a href="javascript:prev_page()">&lt;</a>&nbsp;<a href="javascript:next_page()">&gt;</a>
-            </div>
-            {{#each hits}}
-            <div>
-              <h2>
-                <a target="_blank" href="https://gateway.ipfs.io/ipfs/{{hash}}">
-                  <img height="24" width="24" src="assets/{{type}}.svg">
-                  {{{ title }}}
-                </a>
-              </h2>
-              {{#if description}}
-                <p>{{{description}}}</p>
-              {{/if}}
-              <div>{{ size }} bytes</div>
-            </div>
-            {{/each}}
-            <div class="paginator">
-              <a href="javascript:prev_page()">&lt;</a>&nbsp;<a href="javascript:next_page()">&gt;</a>
-            </div>
-          </div>
-        </div>
-      </script>
       <link rel="stylesheet" type="text/css" href="style/style.css" />
       <meta http-equiv="Access-Control-Allow-Origin" content="*">
     </head>
