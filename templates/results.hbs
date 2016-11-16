@@ -14,7 +14,9 @@
       {{#if description}}
         <p>{{{description}}}</p>
       {{/if}}
-      <div>{{ size }} bytes</div>
+      {{#if size}}
+        <div>{{ size }} bytes</div>
+      {{/if}}
     </div>
     {{/each}}
     <div class="paginator">
