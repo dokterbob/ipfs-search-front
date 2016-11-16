@@ -9969,6 +9969,9 @@ span.input-wrapper:after {
   text-align: center;
   background: initial;
 }
+.results div.noresults img {
+  border-radius: 6px;
+}
 .results .paginator {
   text-align: center;
   background: initial;
