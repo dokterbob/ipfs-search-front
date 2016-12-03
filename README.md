@@ -1,14 +1,4 @@
 # ipfs-search-front
-Frontend for [ipfs-search](http://ipfs-search.com).
 
-## Installation
-
-run
-`npm install`
-
-Have a coffee:)
-
-run
-`gulp`
-
-Voila...
+This repository is now part of the main ipfs-search repository at:
+https://github.com/ipfs-search/ipfs-search/tree/master/frontend
